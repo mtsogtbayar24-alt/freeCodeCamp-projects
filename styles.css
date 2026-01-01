@@ -1,3 +1,16 @@
 #title {
   color: red;
 }
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.red-box {
+  background-color: black;
+}
+
+.blue-box {
+  background-color: blue;
+}
