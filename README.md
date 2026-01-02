@@ -8,10 +8,10 @@ Welcome to my 180-day coding journey! I am a 2nd-year CS student documenting my 
 
 ## 📊 My Progress Tracker
 
-| Day | Topic | Key Learning | Code | Video Log |
+| Day | Topic | Key Learning | Code | Video |
 | :--- | :--- | :--- | :--- | :--- |
-| **Day 1** | HTML Basics | Structuring pages with `div` & `section` | [Code](./day1-html-div.html) | [Watch](https://youtube.com/shorts/oKy2N5UvzQw?feature=share)|
-| **Day 2** | UI Components | Classes, IDs & Building a Bookstore | [Code](./day2-html-bookStorePage.html) | [Watch](ШИНЭ_ЛИНК_ЭНД) |
+| **Day 1** | HTML Basics | `div` & `section` structures | [Code](./day1-html-div.html) | [Watch](https://youtube.com/shorts/oKy2N5UvzQw) |
+| **Day 2** | UI Elements | Classes, IDs & Bookstore layout | [Code](./day2-html-bookStorePage.html) | [Watch](ШИНЭ_ЛИНК) |
 
 ---
 
@@ -20,14 +20,6 @@ Welcome to my 180-day coding journey! I am a 2nd-year CS student documenting my 
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-
----
-
-## 🏗️ Project Spotlight: XYZ Bookstore (Day 2)
-Өнөөдрийн хичээлээр бүтээсэн "XYZ Bookstore" хуудасны бүтэц.
-
-* **Main Goal:** CSS-д зориулсан зөв `class` болон `id` нэршил ашиглаж сурах.
-* **Key Features:** Card container систем, товчлуурын эффектүүд.
 
 ---
 
