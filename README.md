@@ -11,7 +11,7 @@ Welcome to my 180-day coding journey! I am a 2nd-year CS student documenting my 
 | Day | Topic | Key Learning | Code | Video |
 | :--- | :--- | :--- | :--- | :--- |
 | **Day 1** | HTML Basics | `div` & `section` structures | [Code](./day1-html-div.html) | [Watch](https://youtube.com/shorts/oKy2N5UvzQw) |
-| **Day 2** | UI Elements | Classes, IDs & Bookstore layout | [Code](./day2-html-bookStorePage.html) | [Watch](https://youtube.com/shorts/E2EPHIZACX4) |
+| **Day 2** | UI Elements | Classes, IDs & Bookstore layout | [Code](./day2-html-bookStorePage.html) | [Watch](https://youtube.com/shorts/E2EPHIZACX4?feature=share) |
 
 ---
 
