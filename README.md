@@ -13,6 +13,7 @@ Welcome to my 180-day coding journey! I am a 2nd-year CS student documenting my 
 | **Day 1** | HTML Basics | `div` & `section` structures | [Code](./day1-html-div.html) | [Watch](https://youtube.com/shorts/oKy2N5UvzQw) |
 | **Day 2** | UI Elements | Classes, IDs & Bookstore layout | [Code](./day2-html-bookStorePage.html) | [Watch](https://youtube.com/shorts/E2EPHIZACX4?feature=share) |
 | **Day 3** | Semantic HTML |Figures, Images & target="_blank"| [Code](./day3-html-travelAgencyPage.html) | [Watch](https://youtube.com/shorts/k7S5sKiE6Jg?si=4dLabSX_sa1l3oML) |
+| **Day 4** | Multimedia |HTML5 Audio & Video elements| [Code](./day4-html-AudioVideo.html) | [Watch](https://youtube.com/shorts/xThoIJBpQ18?feature=share) |
 
 ---
 
