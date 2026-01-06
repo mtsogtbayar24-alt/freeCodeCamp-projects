@@ -15,6 +15,7 @@ Welcome to my 180-day coding journey! I am a 2nd-year CS student documenting my 
 | **Day 3** | Semantic HTML |Figures, Images & target="_blank"| [Code](./day3-html-travelAgencyPage.html) | [Watch](https://youtube.com/shorts/k7S5sKiE6Jg?si=4dLabSX_sa1l3oML) |
 | **Day 4** | Multimedia |HTML5 Audio & Video elements| [Code](./day4-html-AudioVideo.html) | [Watch](https://youtube.com/shorts/xThoIJBpQ18?feature=share) |
 | **Day 5** | Advanced Multimedia |Video sources & browser compatibility| [Code](./day5-html-VideoPlayer.html) | [Watch](https://youtube.com/shorts/SCFIL8IDgNE?feature=share) |
+| **Day 6** | SVGs & Optimization |Scalable graphics & media best practices| [Code](./day6-html-SVG.html) | [Watch](https://youtube.com/shorts/9k-63p17Dpo?feature=share) |
 
 ---
 
