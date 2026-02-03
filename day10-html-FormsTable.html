@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hotel Feedback Form</title>
+  </head>
+  <body>
+    <header>
+      <h1>Hotel Feedback Form</h1>
+      <p>
+        Thank you for staying with us. Please provide feedback on your recent
+        stay.
+      </p>
+    </header>
+    <main>
+      <form method="POST" action="https://hotel-feedback.freecodecamp.org">
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="full-name">Name (required):</label>
+          <input type="text" id="full-name" name="name" placeholder="e.g., John Doe" required size="20">
+
+          <label for="email">Email address (required):</label>
+          <input
+            placeholder="example@email.com"
+            required
+            id="email"
+            type="email"
+            name="email"
+            size="20"
+          />
+          <label for="age">Age (optional):</label>
+          <input type="number" name="age" id="age" min="3" max="100" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Was this your first time at our hotel?</legend>
+          <input id="yes-option" type="radio" name="hotel-stay" />
+          <label for="yes-option">Yes</label>
+          <input id="no-option" type="radio" name="hotel-stay" />
+          <label for="no-option">No</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Why did you choose to stay at our hotel? (Check all that apply)
+          </legend>
+
+          <input type="checkbox" id="ads" name="choice" value="ads" />
+          <label for="ads">Social Media Ads</label>
+
+          <input
+            type="checkbox"
+            id="recommendation"
+            name="choice"
+            value="recommendation"
+          />
+          <label for="recommendation">Personal Recommendation</label>
+          
+          <input type="checkbox" id="location" name="choice" value="location" />
+          <label for="location">Location</label>
+
+          <input
+            checked
+            type="checkbox"
+            id="reputation"
+            name="choice"
+            value="reputation"
+          />
+          <label for="reputation">Reputation</label>
+          
+          <input type="checkbox" id="price" name="choice" value="price" />
+          <label for="price">Price</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Ratings</legend>
+
+          <label for="service">How was the service?</label>
+
+          <select name="service" id="service">
+            <option value="poor">Poor</option>
+            <option value="satisfactory">Satisfactory</option>
+            <option value="good">Good</option>
+            <option value="very-good">Very Good</option>
+            <option selected value="excellent">Excellent</option>
+          </select>
+
+          <label for="food">How was the food?</label>
+
+          <select name="food" id="food">
+            <option value="poor">Poor</option>
+            <option value="satisfactory">Satisfactory</option>
+            <option value="good">Good</option>
+            <option value="very-good">Very Good</option>
+            <option selected value="excellent">Excellent</option>
+          </select>
+        </fieldset>
+
+        <label for="comments">Other Comments?</label>
+        <textarea cols="30" rows="10" name="comments" id="comments"></textarea>
+
+<button type="submit">Submit</button>        
+      </form>
+    </main>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculus Final Exams Table</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <table>
+      <caption>
+        Calculus Final Exam Grades
+      </caption>
+
+      <thead>     
+        <tr>
+          <th>Last Name</th>
+          <th>First Name</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Davis</td>
+          <td>Alex</td>
+          <td>54</td>
+        </tr>
+
+        <tr>
+          <td>Doe</td>
+          <td>Samantha</td>
+          <td>92</td>
+        </tr>
+
+        <tr>
+          <td>Rodriguez</td>
+          <td>Marcus</td>
+          <td>88</td>
+        </tr>
+
+        <tr>
+          <td>Thompson</td>
+          <td>Jane</td>
+          <td>77</td>
+        </tr>
+
+        <tr>
+          <td>Williams</td>
+          <td>Natalie</td>
+          <td>83</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="2">Average Grade</td>
+          <td >78.8</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Catalog</title>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Publication Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>The Great Gatsby</td>
+        <td>F. Scott Fitzgerald</td>
+        <td>Classic Fiction</td>
+        <td>1925</td>
+      </tr>
+      <tr>
+        <td>Dune</td>
+        <td>Frank Herbert</td>
+        <td>Science Fiction</td>
+        <td>1965</td>
+      </tr>
+      <tr>
+        <td>Project Hail Mary</td>
+        <td>Andy Weir</td>
+        <td>Sci-Fi / Thriller</td>
+        <td>2021</td>
+      </tr>
+      <tr>
+        <td>The Hobbit</td>
+        <td>J.R.R. Tolkien</td>
+        <td>Fantasy</td>
+        <td>1937</td>
+      </tr>
+      <tr>
+        <td>The Seven Husbands of Evelyn Hugo</td>
+        <td>Taylor Jenkins Reid</td>
+        <td>Historical Fiction</td>
+        <td>2017</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">Total Books: 5</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+
+</html>

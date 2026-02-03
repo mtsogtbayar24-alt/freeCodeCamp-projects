@@ -19,6 +19,7 @@ Welcome to my 180-day coding journey! I am a 2nd-year CS student documenting my 
 | **Day 7** | SVG Paths |Building a Heart Icon with <path>| [Code](./day7-html-HeartIcon.html) | [Watch](https://youtube.com/shorts/YEDNUz9MZA4?feature=share) |
 | **Day 8** | Basic HTML (Finish) | <iframe> & Module Completion | [Code](./day8-html-LastBasic.html) | [Watch](https://www.youtube.com/shorts/R06Q99z2jRk?feature=share) |
 | **Day 9** | Semantic HTML (Finish) | <article>, <section>, & accessibility | [Code](./day9-html-Semantic.html) | [Watch](https://youtu.be/Dx4CBOuqoeQ) |
+| **Day 10** | Forms & Tables | Inputs, Selects, and Table Semantics | [Code](./day10-html-FormsTable.html) | [Watch](https://youtu.be/iLHoF71gjjg) |
 
 ---
 
