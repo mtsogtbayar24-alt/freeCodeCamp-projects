@@ -31,7 +31,7 @@ Grinding code every day to build the **"brain"** of software. My journey from a 
 
 | Day | Topic | Key Learning | Folder | Video |
 | :--- | :--- | :--- | :--- | :--- |
-| **Day 12** | **JS Variables & Functions** | Math ops, `let`, and building an increment function | [`/backend-projects`](./backend-projects/) | [Watch](#) |
+| **Day 12** | **JS Variables & Functions** | Math ops, `let`, and building an increment function | [`/backend-projects`](./backend-projects/) | [Watch](https://youtube.com/shorts/iViaiZHHhT4?feature=share) |
 | **Day 11** | **Roadmap Shift** | Transition to Backend & Platform Track | 🧭 | [Watch](https://youtube.com/@tmTech-x9i) |
 | **Day 1-10** | **HTML/CSS** | Semantic Web, Forms, and Tables | [`/frontend-archive`](./frontend-archive/) | [Watch](https://youtube.com/@tmTech-x9i) |
 
