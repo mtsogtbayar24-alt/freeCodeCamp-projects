@@ -4,52 +4,52 @@ Grinding code every day to build the **"brain"** of software. My journey from a 
 
 ---
 
-## 🎯 My Career Roadmap (Backend -> Cloud -> Platform)
+## 🎯 Career Roadmap & Phases
 
-- **Goal A:** Freelance (Full-Stack / Backend Heavy) - **Target: 6 Months**
+- **Goal A:** Freelance (Backend Heavy) - **Target: 6 Months**
 - **Goal B:** FAANG Platform Engineer - **Target: 24 Months**
 
-### 🧭 Phase 0: The Core (Current)
-- [ ] **Node.js & Express** - Mastering Backend Logic
-- [ ] **PostgreSQL / MongoDB** - Database Design
-- [ ] **LeetCode** - Daily Algorithms (40 mins)
+### 🧭 Current Status: Phase 1 - JS Core (14 Days Sprint)
+- [👉] **JS Fundamentals** - Variables, Data Types, Logic (In Progress)
+- [ ] **LeetCode** - Starting with Arrays (Daily 30 mins)
+- [ ] **Advanced JS** - Async, ES6+, Array Methods
 
 ---
 
 ## 📂 Project Structure
 
 - [📂 frontend-archive/](./frontend-archive/) - Days 1-10: HTML/CSS Foundations
-- [📂 backend-projects/](./backend-projects/) - Day 11+: Node.js, APIs, and System Logic
-- [📂 algorithms-leetcode/](./algorithms-leetcode/) - Daily problem-solving progress
+- [📂 backend-projects/](./backend-projects/) - Day 11+: JS Core, Node.js, and APIs
+- [📂 algorithms-leetcode/](./algorithms-leetcode/) - Daily problem-solving
 
 ---
 
-## 📊 My Progress Tracker
+> [!NOTE]
+> **Break (Feb 2026):** Took a 20-day break to celebrate **Tsagaan Sar** (Mongolian Lunar New Year). Back to the grind as of Day 12!
 
-| Day | Topic | Key Learning | Folder/Code | Video |
+## 📊 Progress Tracker
+
+| Day | Topic | Key Learning | Folder | Video |
 | :--- | :--- | :--- | :--- | :--- |
-| **Day 11** | **New Path** | **Shift to Backend & Platform Engineering** | 🧭 | [Watch](https://youtube.com/@tmTech-x9i) |
-| **Day 10** | Forms & Tables | Inputs, Selects, and Table Semantics | [View](./frontend-archive/day10-html-FormsTable.html) | [Watch](https://youtu.be/iLHoF71gjjg) |
-| **Day 1-9** | UI Foundations | HTML5, SVGs, Semantic Web | [Archive](./frontend-archive/) | [Playlist](https://www.youtube.com/@tmTech-x9i) |
+| **Day 12** | **JS Variables & Functions** | Math ops, `let`, and building an increment function | [`/backend-projects`](./backend-projects/) | [Watch](#) |
+| **Day 11** | **Roadmap Shift** | Transition to Backend & Platform Track | 🧭 | [Watch](https://youtube.com/@tmTech-x9i) |
+| **Day 1-10** | **HTML/CSS** | Semantic Web, Forms, and Tables | [`/frontend-archive`](./frontend-archive/) | [Watch](https://youtube.com/@tmTech-x9i) |
 
 ---
 
-## 🛠️ Tech Stack & Skills
+## 📚 Free Resources I Use
 
-![Node.js](https://img.shields.io/badge/node.js-%23339933.svg?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
-![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+### 🟢 JS Core (Now)
+- [FCC JavaScript Full Course](https://www.youtube.com/watch?v=jS4aFq5-91M)
+- [ES6 Features](https://www.youtube.com/watch?v=2LeqilIw-28)
 
----
-
-## 📈 GitHub Stats
-![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=mtsogtbayar24-alt&show_icons=true&theme=radical)
+### 🔵 Backend & Cloud (Upcoming)
+- [Node + Express](https://www.youtube.com/watch?v=Oe421EPjeBE)
+- [Docker Crash Course](https://www.youtube.com/watch?v=3c-iBn73dDE)
+- [AWS Practitioner](https://www.youtube.com/watch?v=ubCNzvZYLJ4)
 
 ---
 
-## 📫 Contact & Follow My Journey
+## 📫 Follow My Journey
 - **YouTube:** [tmTech](https://www.youtube.com/@tmTech-x9i)
 - **GitHub:** [@mtsogtbayar24-alt](https://github.com/mtsogtbayar24-alt)
