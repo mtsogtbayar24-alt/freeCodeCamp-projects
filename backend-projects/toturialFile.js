@@ -110,10 +110,51 @@
 //     count = count + 1;
 //     countEl.innerText = count;
 // }
+// increment()
 
-// lesson 14
-function save() {
-    console.log(count);
-}
+// // lesson 14
+// function save() {
+//     console.log(count);
+// }
 
+// lesson 19
+
+// let userName = "Per";
+
+// console.log(userName);
+
+// let message = "You have 3 notifications";
+
+// let messageToUser = message + ", " + userName + "!";
+
+// console.log(messageToUser);
+
+//lesson 20
+
+// let name1 = "Tsogtbayar";
+
+// let greeting = "Hi, my name is "
+
+// let myGreeting = greeting + name1;
+
+// console.log(myGreeting);
+
+// // let totalPoints = points + bonusPoints
+
+// console.log(4 + 5) 
+// console.log("2" + "4")
+// console.log("5" + 1)
+// console.log(100 + "100")
+
+// lesson 21
+
+// let welcomeEl = document.getElementById('welcome-el')
+
+// let name1 = "Tsogtbayar";
+
+// let greeting = "Welcome Back "
+
+// welcomeEl.innerText = greeting + name1
+
+// welcomeEl.innerText += " 👋"
 
