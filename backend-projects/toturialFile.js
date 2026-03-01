@@ -382,27 +382,90 @@
 
 // LESS 10 add a message variable
 
-let firstCard = 10
-let secondCard = 11
-let sum = firstCard + secondCard + 4
-let hasBlackJack = false
-let isAlive = true
-let message = ""
-// 1. Declare a variable called message and assign its value to an empty string
+// let firstCard = 10
+// let secondCard = 11
+// let sum = firstCard + secondCard + 4
+// let hasBlackJack = false
+// let isAlive = true
+// let message = ""
+// // 1. Declare a variable called message and assign its value to an empty string
 
-// 2. Reassign the message variable to the string we're logging out
-if (sum <= 20) {
-  message = "Do you want to draw a new card? 🙂"
-} else if (sum === 21) {
-    message = "Wohoo! You've got Blackjack! 🥳"
-     hasBlackJack = true
-} else {
-  message = "You're out of the game! 😭"
-    isAlive = false
-}
+// // 2. Reassign the message variable to the string we're logging out
+// if (sum <= 20) {
+//   message = "Do you want to draw a new card? 🙂"
+// } else if (sum === 21) {
+//     message = "Wohoo! You've got Blackjack! 🥳"
+//      hasBlackJack = true
+// } else {
+//   message = "You're out of the game! 😭"
+//     isAlive = false
+// }
 
-console.log(message)
-// 3. Log it out!
+// console.log(message)
+// // 3. Log it out!
+
+// LESS 21 intro of arrays
+
+// Arrays - ordered lists of items
+
+// Create an array that lists your i.e. experience, education, licenses, skills or similar
+// The items of the array should be strings
+
+// let myExperience = [
+//   "waiter-bull hotpot",
+//   "waiter-tse pub",
+//   "hskRunner-hyat regency"
+// ]
+
+// let education = [
+//   "1-10 durgun EBS",
+//   "10-12 hovd labrtory 1 EBS",
+//   "software engineer- MUST-SICT"
+// ]
+
+// console.log(education[0])
+
+// Arrays - ordered lists of items
+
+// let featuredPosts = [
+//     "Check out my Netflix clone",
+//     "Here's the code for my project",
+//     "I've just relaunched my portfolio"
+// ]
 
 
+// let experience = ["CEO at Scrimba", "Frontend developer at Xeneta", "People counter for Norstat"]
+
+// console.log(featuredPosts.length)
+
+//arrays with multiple data types
+
+// let aboutMe = [
+//   "Tsogtbayar ",
+//   20 ,
+//   true
+// ]
+// console.log(aboutMe)
+
+//push method
+
+// let cards = [7, 4]
+// cards.push(6)
+// //console.log(cards)
+
+// // Push the newMessage to the messages array, and then log out the array
+
+// let messages = [
+//     "Hey, how's it going?",        
+//     "I'm great, thank you! How about you?",
+//     "All good. Been working on my portfolio lately."
+// ]
+
+// let newMessage = "Same here!"
+
+// messages.push(newMessage)
+
+// messages.pop()
+
+// console.log(messages)
 
