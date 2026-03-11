@@ -469,3 +469,54 @@
 
 // console.log(messages)
 
+// let age = 18
+
+// function ageCalc(){
+//   if (age<=17){
+//     console.log("ta nsand hureegui baina")
+//   } 
+//   else{
+//     console.log("ta nasand hursen baina")
+//   }
+// }
+
+// ageCalc()
+
+// let text = []
+
+// // for (let i = 0; i < 5; i++) {
+// //   text += "The number is " + i + "<br>";
+// // }
+// let i = 0
+
+// while (i < 10) {
+//   text += "The number is " + i + ". ";
+//   i++;
+// }
+// console.log(text)
+
+// do {
+//   text += "The number is " + i;
+//   i++;
+// }
+// while (i < 10);
+
+//OBJECTS
+
+const car = {
+  type: "Fiat",
+  model: "500",
+  color: "White"
+}
+
+let x = car.type
+let y = car['model']
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
