@@ -503,20 +503,140 @@
 
 //OBJECTS
 
-const car = {
-  type: "Fiat",
-  model: "500",
-  color: "White"
+// const car = {
+//   type: "Fiat",
+//   model: "500",
+//   color: "White"
+// }
+
+// let x = car.type
+// let y = car['model']
+
+// const person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   age: 50,
+//   fullName: function() {
+//     return this.firstName + " " + this.lastName;
+//   }
+// };
+
+
+//ES6 arrowFunctions
+
+// function sum(a, b){
+//   return a+b
+// }
+
+// let sum2 = (a, b) => a + b
+
+// function isPositive(number){
+//   return number >= 0
+// }
+
+// let isPositive2 = (number) => number >= 0
+
+// function randomNumber(){
+//   return Math.random
+// }
+// let randomNumber2 = () => Math.random
+
+// document.addEventListener('click',function(){
+//   console.log('click')
+// } )
+
+// document.addEventListener('click',() => console.log('click'))
+
+//ES6 destructuring
+
+// const alhpabet = ["A", "B", "C", "D", "E", "F"]
+// const numbers = ['1', '2', '3', '4', '5', '6']
+
+// // const a = alhpabet[0]
+// // const b = alhpabet[1]
+
+// const [a,, c, ...rest] = alhpabet
+
+// // newArray = [...alhpabet, ...numbers]
+
+// newArray = alhpabet.concat(numbers)
+
+// // console.log(a)
+// // console.log(b)
+// // console.log(c)
+// // console.log(rest)
+// console.log(newArray)
+
+// function sumAndMultiply (a, b){
+//   return [a+b, a*b, a/b]
+// }
+// const [sum, multiply, division="No division"] = sumAndMultiply(2, 3)
+
+// console.log(sum)
+// console.log(multiply)
+// console.log(division)
+
+//OBJECT destructuring
+
+// const personOne = {
+//   name: "Kyle",
+//   age: 24,
+//   adress: {
+//     city: "Somewhere",
+//     state: "One of them"
+//   }
+// }
+
+// const personTwo = {
+//   name: "Sally",
+//   age: 32,
+//   favoriteFood: "waterMelon",
+//   adress: {
+//     city: "Somewhere",
+//     state: "Anothet one of them"
+//   }
+// }
+
+// const { name: firstnName = "John", age, favoriteFood = "Rice"} = personTwo
+
+// console.log(firstnName)
+// console.log(age)
+// console.log(favoriteFood)
+
+// const { name: firstnName, adress: {city}} = personTwo
+
+// console.log(city)
+
+// const personOne = {
+//   name: "Kyle",
+//   age: 24,
+//   adress: {
+//     city: "Somewhere",
+//     state: "One of them"
+//   }
+// }
+
+// const personTwo = {
+//   age: 32,
+//   favoriteFood: "waterMelon",
+// }
+
+// const personThree = {...personOne, ...personTwo}
+
+// console.log(personThree)
+
+const personOne = {
+  name: "Kyle",
+  age: 24,
+  fovariteFood: "Rice",
+  adress: {
+    city: "Somewhere",
+    state: "One of them"
+  }
 }
 
-let x = car.type
-let y = car['model']
+function printUser({name, age, fovariteFood="WaterMelon"}){
+  console.log(`Name is: ${name}. Age is: ${age}. FovariteFood is: ${fovariteFood}`)
+}
 
-const person = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 50,
-  fullName: function() {
-    return this.firstName + " " + this.lastName;
-  }
-};
+printUser(personOne)
