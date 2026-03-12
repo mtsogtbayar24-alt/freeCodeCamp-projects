@@ -1,7 +1,22 @@
 {
-  "toDos": [
-    {"name": "John", "task": "Doe"},
-    {"name": "John", "task": "Doe"},
-    {"name": "John", "task": "Doe"}
+  "tasks": [
+    {
+      "id": 1773303707880,
+      "title": "\"Workout\"",
+      "completed": false,
+      "createdAt": "2026-03-12T08:21:47.880Z"
+    },
+    {
+      "id": 1773303721307,
+      "title": "\"SHutah hiih\"",
+      "completed": false,
+      "createdAt": "2026-03-12T08:22:01.307Z"
+    },
+    {
+      "id": 1773303757949,
+      "title": "\"cold shower\"",
+      "completed": true,
+      "createdAt": "2026-03-12T08:22:37.949Z"
+    }
   ]
 }
