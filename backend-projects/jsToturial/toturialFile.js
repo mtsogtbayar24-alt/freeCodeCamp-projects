@@ -547,7 +547,7 @@
 
 // document.addEventListener('click',() => console.log('click'))
 
-//ES6 destructuring
+/////////////////////////////////ES6 destructuring
 
 // const alhpabet = ["A", "B", "C", "D", "E", "F"]
 // const numbers = ['1', '2', '3', '4', '5', '6']
@@ -625,18 +625,90 @@
 
 // console.log(personThree)
 
-const personOne = {
-  name: "Kyle",
-  age: 24,
-  fovariteFood: "Rice",
-  adress: {
-    city: "Somewhere",
-    state: "One of them"
-  }
-}
+// const personOne = {
+//   name: "Kyle",
+//   age: 24,
+//   fovariteFood: "Rice",
+//   adress: {
+//     city: "Somewhere",
+//     state: "One of them"
+//   }
+// }
 
-function printUser({name, age, fovariteFood="WaterMelon"}){
-  console.log(`Name is: ${name}. Age is: ${age}. FovariteFood is: ${fovariteFood}`)
-}
+// function printUser({name, age, fovariteFood="WaterMelon"}){
+//   console.log(`Name is: ${name}. Age is: ${age}. FovariteFood is: ${fovariteFood}`)
+// }
 
-printUser(personOne)
+// printUser(personOne)
+
+////////////////////////////////// ARRAY MAP ///////////////////////////////////
+
+// const prices = [4, 8, 15, 16, 23, 42]
+
+// const discountPrices = prices.map(price => price * 0.5)
+// console.log (prices)
+// console.log(discountPrices)
+
+////////////////////////////////// ARRAY FILTER ///////////////////////////////////
+
+// let arr = [2, 4, 8, 10];
+// let updatedArr = arr.slice().filter(val => val < 5);
+// console.log(arr);
+// console.log(updatedArr);
+
+////////////////////////////////// ARRAY REDUCE ///////////////////////////////////
+
+// let arr1= [2,4,8,10]
+// let updatedArr1 = arr.reduce((prev, curr)=> curr= prev+curr)
+// console.log(arr);
+// console.log(updatedArr);
+
+/////////////////////////////////// Array squared ///////////////////////////////////
+
+// const input = [1, 2, 3, 4, 5];
+// const output = input.map(input => Math.pow(input, 2))
+// console.log(output)
+// input.map(function (num) {
+//   return Math.pow(num, 2);
+// });
+// input.map((num) => Math.pow(num, 2));
+
+/////////////////////////////////// Sum of every positive element ///////////////////////////////////
+
+// const input = [1, -4, 12, 0, -3, 29, -150];
+
+// let output = input.filter(val => val > 0)
+
+// output = output.reduce((prev, curr)=> curr = prev+curr)
+
+// console.log(output)
+
+/////////////////////////////////// Calculate median and mean ///////////////////////////////////
+
+const input = [10, 46, 32, 64];
+input.sort((a, b) => a - b);
+
+const output = input.reduce(
+  (accumulator, currentValue, index, array) => {
+    accumulator.mean += currentValue / array.length;
+
+    if (array.length % 2 === 0) {
+      // if the array has an even number of elements
+      if (index === array.length / 2 - 1) {
+        accumulator.median += currentValue;
+      } else if (index === array.length / 2) {
+        accumulator.median += currentValue;
+        accumulator.median /= 2;
+      }
+    } else {
+      // if the array has an odd number of elements
+      if (index === (array.length - 1) / 2) {
+        accumulator.median = currentValue;
+      }
+    }
+
+    return accumulator;
+  },
+  { mean: 0, median: 0 }
+);
+console.log(output)
