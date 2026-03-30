@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High-Performance Weekly Schedule - MUST Student</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f7f7f5;
+      --border: #e5e5e5;
+
+      --text-main: #111;
+      --text-secondary: #6b6b6b;
+
+      --accent: #2563eb;
+    }
+
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg-soft);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-main);
+      padding: 32px 20px;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .header p {
+      display: none;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* SLEEP BLOCK */
+    .sleep-dashboard {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .sleep-dashboard h2 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .sleep-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+    }
+
+    .sleep-item {
+      padding: 10px;
+      border-radius: 8px;
+      background: var(--bg-soft);
+      text-align: center;
+    }
+
+    .sleep-day {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .sleep-hours {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .sleep-time {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* GRID */
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    /* CARD */
+    .day-card {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    /* TITLE */
+    .day-header h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding-bottom: 6px;
+    }
+
+    td {
+      padding: 6px 0;
+      border-bottom: 1px solid #f1f1f1;
+      vertical-align: top;
+    }
+
+    /* REMOVE ROW COLORS */
+    tr {
+      background: none !important;
+    }
+
+    /* TIME */
+    .time-col {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+      width: 92px;
+      white-space: nowrap;
+    }
+
+    /* ACTIVITY */
+    .activity-name {
+      font-size: 12px;
+    }
+
+    /* BADGE → minimal */
+    .activity-badge {
+      font-size: 10px;
+      color: var(--text-secondary);
+      background: none;
+      padding: 0;
+      white-space: nowrap;
+    }
+
+    /* REMOVE COLORS */
+    .type-class,
+    .type-dw,
+    .type-gym,
+    .type-meal,
+    .type-leet,
+    .type-freelance,
+    .type-break {
+      background: none;
+      color: var(--text-secondary);
+    }
+
+    /* DURATION */
+    .duration {
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-align: right;
+      white-space: nowrap;
+      width: 56px;
+    }
+
+    /* SUMMARY */
+    .daily-summary {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* WEEKLY SUMMARY (layout + grid fix) */
+    .weekly-summary {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+
+    .weekly-summary h2 {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .weekly-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .weekly-table {
+      width: 100%;
+      min-width: 760px; /* horizontal scroll on small screens */
+      border-collapse: collapse;
+      background: var(--bg);
+    }
+
+    .weekly-table th,
+    .weekly-table td {
+      font-size: 11px;
+      padding: 8px 10px;
+      text-align: center;
+      border-bottom: 1px solid #f1f1f1;
+      white-space: nowrap;
+    }
+
+    .weekly-table th:first-child,
+    .weekly-table td:first-child {
+      text-align: left;
+      position: sticky;
+      left: 0;
+      background: var(--bg);
+      z-index: 1;
+    }
+
+    .weekly-table tr.is-highlight td {
+      background: rgba(124, 252, 152, 0.08);
+    }
+
+    /* REMOVE LEGEND (not needed in minimal UI) */
+    .legend {
+      display: none;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>HIGH-PERFORMANCE SCHEDULE</h1>
+    <p>MUST Software Engineering Student | Deep Work on Lectures Only</p>
+  </div>
+
+  <div class="container">
+    <!-- SLEEP DASHBOARD -->
+    <div class="sleep-dashboard">
+      <h2><i class="fas fa-moon"></i> SLEEP ARCHITECTURE</h2>
+      <div class="sleep-grid">
+        <div class="sleep-item">
+          <div class="sleep-day">Monday</div>
+          <div class="sleep-hours">8h</div>
+          <div class="sleep-time">22:30–06:30</div>
+        </div>
+        <div class="sleep-item">
+          <div class="sleep-day">Tuesday</div>
+          <div class="sleep-hours">7.5h</div>
+          <div class="sleep-time">23:00–06:30</div>
+        </div>
+        <div class="sleep-item">
+          <div class="sleep-day">Wednesday</div>
+          <div class="sleep-hours">8h</div>
+          <div class="sleep-time">22:30–06:30</div>
+        </div>
+        <div class="sleep-item">
+          <div class="sleep-day">Thursday</div>
+          <div class="sleep-hours">7.5h</div>
+          <div class="sleep-time">23:00–06:30</div>
+        </div>
+        <div class="sleep-item">
+          <div class="sleep-day">Friday</div>
+          <div class="sleep-hours">8h</div>
+          <div class="sleep-time">22:30–06:30</div>
+        </div>
+        <div class="sleep-item">
+          <div class="sleep-day">Saturday</div>
+          <div class="sleep-hours">7.5h</div>
+          <div class="sleep-time">23:00–06:30</div>
+        </div>
+        <div class="sleep-item">
+          <div class="sleep-day">Sunday</div>
+          <div class="sleep-hours">8h</div>
+          <div class="sleep-time">22:30–06:30</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKLY SCHEDULE CARDS -->
+    <div class="week-grid">
+      <!-- MONDAY -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>MONDAY — 6h Classes</h3>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Activity</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">06:30–07:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 1</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>08:00–09:30</strong></td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P1: Visual (Lecture)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">09:40–11:10</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P2: Visual (Lab)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">11:20–12:50</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P3: ST English</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">12:50–13:20</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Quick Meal</div></td>
+              <td class="duration">30m</td>
+            </tr>
+            <tr>
+              <td class="time-col">13:20–14:50</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P4: Special English</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">15:10–16:10</td>
+              <td><span class="activity-badge type-leet">LeetCode</span></td>
+              <td><div class="activity-name">Algorithm Practice</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">16:30–17:30</td>
+              <td><span class="activity-badge type-freelance">Freelance</span></td>
+              <td><div class="activity-name">Project Work</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">17:50–18:50</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 2</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">19:10–20:10</td>
+              <td><span class="activity-badge type-class">HW</span></td>
+              <td><div class="activity-name">Academic Review</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">20:30–21:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 3</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">21:30–22:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 4 / Relax</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>22:30–06:30</strong></td>
+              <td><span class="activity-badge type-meal">Sleep</span></td>
+              <td><div class="activity-name">Sleep</div></td>
+              <td class="duration">8h</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="daily-summary">
+          <div class="summary-item">Classes: <span class="summary-value">6h</span></div>
+          <div class="summary-item">Deep Work: <span class="summary-value">1.5h</span></div>
+          <div class="summary-item">LeetCode: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Freelance: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Sleep: <span class="summary-value">8h ✓</span></div>
+        </div>
+      </div>
+
+      <!-- TUESDAY -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>TUESDAY — 4.5h Classes + 3h Gym</h3>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Activity</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">06:30–07:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 1</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">08:00–09:30</td>
+              <td><span class="activity-badge type-leet">LeetCode</span></td>
+              <td><div class="activity-name">Morning Session</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">09:40–11:10</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P2: ST English</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">11:20–12:50</td>
+              <td><span class="activity-badge type-class">HW</span></td>
+              <td><div class="activity-name">Academic Work</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">12:50–13:20</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 2</div></td>
+              <td class="duration">30m</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>13:20–14:50</strong></td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P4: SE (Lecture)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">15:00–16:30</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P5: SE (Lab)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>17:00–20:00</strong></td>
+              <td><span class="activity-badge type-gym">Gym</span></td>
+              <td><div class="activity-name">Gym Block</div></td>
+              <td class="duration">3h</td>
+            </tr>
+            <tr>
+              <td class="time-col">20:15–21:15</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 3 (Post-Workout)</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">21:30–22:30</td>
+              <td><span class="activity-badge type-freelance">Freelance</span></td>
+              <td><div class="activity-name">Project Work</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">22:30–23:00</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 4</div></td>
+              <td class="duration">30m</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>23:00–06:30</strong></td>
+              <td><span class="activity-badge type-meal">Sleep</span></td>
+              <td><div class="activity-name">Sleep</div></td>
+              <td class="duration">7.5h</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="daily-summary">
+          <div class="summary-item">Classes: <span class="summary-value">4.5h</span></div>
+          <div class="summary-item">Deep Work: <span class="summary-value">1.5h</span></div>
+          <div class="summary-item">LeetCode: <span class="summary-value">1.5h</span></div>
+          <div class="summary-item">Gym: <span class="summary-value">3h ✓</span></div>
+          <div class="summary-item">Sleep: <span class="summary-value">7.5h ✓</span></div>
+        </div>
+      </div>
+
+      <!-- WEDNESDAY -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>WEDNESDAY — 4.5h Classes</h3>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Activity</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">06:30–07:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 1</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">08:00–09:30</td>
+              <td><span class="activity-badge type-class">HW</span></td>
+              <td><div class="activity-name">Academic Work</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">09:40–11:10</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P2: Special English</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>11:20–12:50</strong></td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P3: AI (Lecture)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">12:50–13:20</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 2</div></td>
+              <td class="duration">30m</td>
+            </tr>
+            <tr>
+              <td class="time-col">13:20–14:50</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P4: AI (Lab)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">15:10–16:10</td>
+              <td><span class="activity-badge type-leet">LeetCode</span></td>
+              <td><div class="activity-name">Problem Solving</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">16:30–17:30</td>
+              <td><span class="activity-badge type-freelance">Freelance</span></td>
+              <td><div class="activity-name">Project Work</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">17:50–18:50</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 3</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">19:10–20:10</td>
+              <td><span class="activity-badge type-break">Review</span></td>
+              <td><div class="activity-name">Study Review</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">20:30–21:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 4</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">21:30–22:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 5 / Wind down</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>22:30–06:30</strong></td>
+              <td><span class="activity-badge type-meal">Sleep</span></td>
+              <td><div class="activity-name">Sleep</div></td>
+              <td class="duration">8h</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="daily-summary">
+          <div class="summary-item">Classes: <span class="summary-value">4.5h</span></div>
+          <div class="summary-item">Deep Work: <span class="summary-value">1.5h</span></div>
+          <div class="summary-item">LeetCode: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Freelance: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Sleep: <span class="summary-value">8h ✓</span></div>
+        </div>
+      </div>
+
+      <!-- THURSDAY -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>THURSDAY — 3h Classes + 3.5h Gym</h3>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Activity</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">06:30–07:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 1</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>08:00–09:30</strong></td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P1: OOP (Lecture)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">09:40–11:10</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P2: OOP (Lab)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>11:20–14:50</strong></td>
+              <td><span class="activity-badge type-gym">Gym</span></td>
+              <td><div class="activity-name">Gym / Outside activities</div></td>
+              <td class="duration">3.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">15:10–16:10</td>
+              <td><span class="activity-badge type-leet">LeetCode</span></td>
+              <td><div class="activity-name">Problem Solving</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">16:30–17:30</td>
+              <td><span class="activity-badge type-freelance">Freelance</span></td>
+              <td><div class="activity-name">Project Work</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">17:50–18:50</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 3 (Post-Workout)</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">19:10–20:10</td>
+              <td><span class="activity-badge type-class">HW</span></td>
+              <td><div class="activity-name">Homework</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">20:30–21:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 4</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">21:45–22:45</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Relax / Wind down</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>23:00–06:30</strong></td>
+              <td><span class="activity-badge type-meal">Sleep</span></td>
+              <td><div class="activity-name">Sleep</div></td>
+              <td class="duration">7.5h</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="daily-summary">
+          <div class="summary-item">Classes: <span class="summary-value">3h</span></div>
+          <div class="summary-item">Deep Work: <span class="summary-value">1.5h</span></div>
+          <div class="summary-item">Gym: <span class="summary-value">3.5h</span></div>
+          <div class="summary-item">LeetCode: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Sleep: <span class="summary-value">7.5h ✓</span></div>
+        </div>
+      </div>
+
+      <!-- FRIDAY -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>FRIDAY — 4.5h Classes + 2h Deep Work</h3>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Activity</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">06:30–07:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 1</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>07:30–09:30</strong></td>
+              <td><span class="activity-badge type-dw">DW</span></td>
+              <td><div class="activity-name">Deep Work Block</div></td>
+              <td class="duration">2h</td>
+            </tr>
+            <tr>
+              <td class="time-col">09:40–11:10</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P2: ST English</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">11:20–12:50</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P3: Probability (Lecture)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">12:50–13:20</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Quick Lunch</div></td>
+              <td class="duration">30m</td>
+            </tr>
+            <tr>
+              <td class="time-col">13:20–14:50</td>
+              <td><span class="activity-badge type-class">Class</span></td>
+              <td><div class="activity-name">P4: Probability (Seminar)</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col">15:10–16:10</td>
+              <td><span class="activity-badge type-leet">LeetCode</span></td>
+              <td><div class="activity-name">Problem Solving</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">16:30–17:30</td>
+              <td><span class="activity-badge type-freelance">Freelance</span></td>
+              <td><div class="activity-name">Project Work</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">17:50–18:50</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 2</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">19:10–20:10</td>
+              <td><span class="activity-badge type-class">HW</span></td>
+              <td><div class="activity-name">Homework</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">20:30–21:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 3</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">21:30–22:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 4 / Relax</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>22:30–06:30</strong></td>
+              <td><span class="activity-badge type-meal">Sleep</span></td>
+              <td><div class="activity-name">Sleep</div></td>
+              <td class="duration">8h</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="daily-summary">
+          <div class="summary-item">Classes: <span class="summary-value">4.5h</span></div>
+          <div class="summary-item">Deep Work: <span class="summary-value">2h</span></div>
+          <div class="summary-item">LeetCode: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Freelance: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Sleep: <span class="summary-value">8h ✓</span></div>
+        </div>
+      </div>
+
+      <!-- SATURDAY -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>SATURDAY — 2h Deep Work + 2h Freelance + 3h Gym</h3>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Activity</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">06:30–07:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 1</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>07:30–09:30</strong></td>
+              <td><span class="activity-badge type-dw">DW</span></td>
+              <td><div class="activity-name">Deep Work Block</div></td>
+              <td class="duration">2h</td>
+            </tr>
+            <tr>
+              <td class="time-col">09:45–10:45</td>
+              <td><span class="activity-badge type-leet">LeetCode</span></td>
+              <td><div class="activity-name">Weekend Challenge</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">11:00–12:00</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 2</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>12:30–14:30</strong></td>
+              <td><span class="activity-badge type-freelance">Freelance</span></td>
+              <td><div class="activity-name">Freelance Extended</div></td>
+              <td class="duration">2h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>15:00–18:00</strong></td>
+              <td><span class="activity-badge type-gym">Gym</span></td>
+              <td><div class="activity-name">Gym / Outside activities</div></td>
+              <td class="duration">3h</td>
+            </tr>
+            <tr>
+              <td class="time-col">18:30–19:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 3 (Post-Workout)</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">20:00–21:00</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 4</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">21:15–22:45</td>
+              <td><span class="activity-badge type-break">Personal</span></td>
+              <td><div class="activity-name">Personal Care / Relax</div></td>
+              <td class="duration">1.5h</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>23:00–06:30</strong></td>
+              <td><span class="activity-badge type-meal">Sleep</span></td>
+              <td><div class="activity-name">Sleep</div></td>
+              <td class="duration">7.5h</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="daily-summary">
+          <div class="summary-item">Deep Work: <span class="summary-value">2h</span></div>
+          <div class="summary-item">LeetCode: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Freelance: <span class="summary-value">2h</span></div>
+          <div class="summary-item">Gym: <span class="summary-value">3h</span></div>
+          <div class="summary-item">Sleep: <span class="summary-value">7.5h ✓</span></div>
+        </div>
+      </div>
+
+      <!-- SUNDAY (fixed to match other days) -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>SUNDAY — 2h DW + 1h Planning + 2h Freelance + 3h Gym</h3>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Activity</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">06:30–07:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 1</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">07:30–09:30</td>
+              <td><span class="activity-badge type-dw">DW</span></td>
+              <td><div class="activity-name">Deep Work Block</div></td>
+              <td class="duration">2h</td>
+            </tr>
+            <tr>
+              <td class="time-col">09:45–10:45</td>
+              <td><span class="activity-badge type-break">Planning</span></td>
+              <td><div class="activity-name">Weekly Planning</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">11:00–12:00</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 2</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">12:30–14:30</td>
+              <td><span class="activity-badge type-freelance">Freelance</span></td>
+              <td><div class="activity-name">Freelance Work</div></td>
+              <td class="duration">2h</td>
+            </tr>
+            <tr>
+              <td class="time-col">15:00–18:00</td>
+              <td><span class="activity-badge type-gym">Gym</span></td>
+              <td><div class="activity-name">Workout</div></td>
+              <td class="duration">3h</td>
+            </tr>
+            <tr>
+              <td class="time-col">18:30–19:30</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 3</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">19:45–20:45</td>
+              <td><span class="activity-badge type-leet">LeetCode</span></td>
+              <td><div class="activity-name">Practice</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">21:00–22:00</td>
+              <td><span class="activity-badge type-meal">Meal</span></td>
+              <td><div class="activity-name">Meal 4</div></td>
+              <td class="duration">1h</td>
+            </tr>
+            <tr>
+              <td class="time-col">22:00–22:30</td>
+              <td><span class="activity-badge type-break">Relax</span></td>
+              <td><div class="activity-name">Wind down</div></td>
+              <td class="duration">30m</td>
+            </tr>
+            <tr>
+              <td class="time-col"><strong>22:30–06:30</strong></td>
+              <td><span class="activity-badge type-meal">Sleep</span></td>
+              <td><div class="activity-name">Sleep</div></td>
+              <td class="duration">8h</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="daily-summary">
+          <div class="summary-item">Deep Work: <span class="summary-value">2h</span></div>
+          <div class="summary-item">Planning: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Freelance: <span class="summary-value">2h</span></div>
+          <div class="summary-item">Gym: <span class="summary-value">3h</span></div>
+          <div class="summary-item">LeetCode: <span class="summary-value">1h</span></div>
+          <div class="summary-item">Sleep: <span class="summary-value">8h ✓</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKLY SUMMARY -->
+    <div class="weekly-summary">
+      <h2>WEEKLY PERFORMANCE DASHBOARD</h2>
+
+      <div class="weekly-table-wrap">
+        <table class="weekly-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
+              <th><strong>WEEKLY</strong></th>
+              <th>Target</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="category-name">Classes</td>
+              <td class="value-cell">6h</td>
+              <td class="value-cell">4.5h</td>
+              <td class="value-cell">4.5h</td>
+              <td class="value-cell">3h</td>
+              <td class="value-cell">4.5h</td>
+              <td class="value-cell">—</td>
+              <td class="value-cell">—</td>
+              <td class="value-cell"><strong>22.5h</strong></td>
+              <td class="value-cell">Required ✅</td>
+            </tr>
+
+            <tr>
+              <td class="category-name">Deep Work</td>
+              <td class="value-cell">1.5h</td>
+              <td class="value-cell">1.5h</td>
+              <td class="value-cell">1.5h</td>
+              <td class="value-cell">1.5h</td>
+              <td class="value-cell">2h</td>
+              <td class="value-cell">2h</td>
+              <td class="value-cell">2h</td>
+              <td class="value-cell"><strong>12h</strong></td>
+              <td class="value-cell">14h target</td>
+            </tr>
+
+            <tr>
+              <td class="category-name">LeetCode</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1.5h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell"><strong>7.5h</strong></td>
+              <td class="value-cell">7h+ ✅</td>
+            </tr>
+
+            <tr>
+              <td class="category-name">Freelance</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">1h</td>
+              <td class="value-cell">2h</td>
+              <td class="value-cell">2h</td>
+              <td class="value-cell"><strong>9h</strong></td>
+              <td class="value-cell">7h+ ✅</td>
+            </tr>
+
+            <tr>
+              <td class="category-name">Gym</td>
+              <td class="value-cell">—</td>
+              <td class="value-cell">3h</td>
+              <td class="value-cell">—</td>
+              <td class="value-cell">3.5h</td>
+              <td class="value-cell">—</td>
+              <td class="value-cell">3h</td>
+              <td class="value-cell">3h</td>
+              <td class="value-cell"><strong>12.5h</strong></td>
+              <td class="value-cell">10h+ ✅</td>
+            </tr>
+
+            <tr class="is-highlight">
+              <td class="category-name"><strong>Sleep</strong></td>
+              <td class="value-cell"><strong>8h</strong></td>
+              <td class="value-cell"><strong>7.5h</strong></td>
+              <td class="value-cell"><strong>8h</strong></td>
+              <td class="value-cell"><strong>7.5h</strong></td>
+              <td class="value-cell"><strong>8h</strong></td>
+              <td class="value-cell"><strong>7.5h</strong></td>
+              <td class="value-cell"><strong>8h</strong></td>
+              <td class="value-cell"><strong>54.5h</strong></td>
+              <td class="value-cell">7.8h avg ✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- LEGEND (hidden by CSS) -->
+    <div class="legend">
+      <h2>🎨 ACTIVITY TYPES</h2>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <span class="legend-badge type-class"><i class="fas fa-book"></i> Classes</span>
+          <span class="text-muted">Lectures/Labs</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge type-dw"><i class="fas fa-brain"></i> Deep Work</span>
+          <span class="text-muted">Focused learning</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge type-leet"><i class="fas fa-bolt"></i> LeetCode</span>
+          <span class="text-muted">Algorithm practice</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge type-freelance"><i class="fas fa-hammer"></i> Freelance</span>
+          <span class="text-muted">Portfolio projects</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge type-gym"><i class="fas fa-dumbbell"></i> Gym</span>
+          <span class="text-muted">Workout + recovery</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge type-meal"><i class="fas fa-utensils"></i> Meals</span>
+          <span class="text-muted">Nutrition timing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
