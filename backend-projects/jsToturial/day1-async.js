@@ -84,8 +84,9 @@ function wait(ms){
 }
 async function run() {
   console.log("start");
-  await wait (1000);
-  console.log("After 1 sec");
+  await wait (2000);
+  await wait (2000);
+  console.log("After 4 sec");
 }
 
 run();
