@@ -18,23 +18,23 @@ getData()
   console.log(err);
 });
 
-// //successful job completion, a “fulfilled promise”.
-// let promise = new Promise(function(resolve, reject){
-//   // the function is executed automatically when the promise is constructed
+ //successful job completion, a “fulfilled promise”.
+ let promise = new Promise(function(resolve, reject){
+   // the function is executed automatically when the promise is constructed
 
-//   // after 1 second signal that the job i sdone with the result "done" 
-//   setTimeout(() => {
-//     resolve("done");
-//   }, 1000);
-// });
+   // after 1 second signal that the job i sdone with the result "done" 
+   setTimeout(() => {
+     resolve("done");
+   }, 1000);
+ });
 
-// //rejecting the promise with an error:
-// let promiseF = new Promise(function(resolve, reject){
-//   // the function is executed automatically when the promise is constructed
+ //rejecting the promise with an error:
+ let promiseF = new Promise(function(resolve, reject){
+   // the function is executed automatically when the promise is constructed
 
-//   // after 1 second signal that the job i sdone with the result "done" 
-//   setTimeout(() => reject(new Error(("Whoops")), 1000);
-//});
+   // after 1 second signal that the job i sdone with the result "done" 
+   setTimeout(() => reject(new Error(("Whoops")), 1000));
+  });
 
 //ASYNC / AWAIT (solution #2 — BEST)
 
@@ -66,16 +66,15 @@ async function run () {
 
 //⚠️ ERROR HANDLING
 
-//Promise:
-//.catch(err => console.log(err))
+// Promise:
+// .catch(err => console.log(err))
+// Async/Await:
 
-//Async/Await:
-
-// try{
-//   const data =  await getData();
-// } catch(err){
-//   console.log(err);
-// }
+ try{
+   const data =  await getData();
+ } catch(err){
+   console.log(err);
+ }
 
 // Unuudriin Task
 
